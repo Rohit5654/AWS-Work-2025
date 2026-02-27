@@ -1,0 +1,53 @@
+vba to drop an email
+
+Sub SendBulkEmails()
+
+    Dim OutApp As Object
+    Dim OutMail As Object
+    Dim ws As Worksheet
+    Dim lastRow As Long
+    Dim i As Long
+    
+    Set ws = ThisWorkbook.Sheets("Sheet1") 'Change if your sheet name differs
+    
+    ' Create Outlook application
+    Set OutApp = CreateObject("Outlook.Application")
+    
+    ' Find last row with data
+    lastRow = ws.Cells(ws.Rows.Count, "A").End(xlUp).Row
+    
+    ' Loop through each row
+    For i = 2 To lastRow   'Assuming row 1 has headers
+        
+        ' Create email item
+        Set OutMail = OutApp.CreateItem(0)
+        
+        Dim emailTo As String
+        Dim subjectText As String
+        Dim contentText As String
+        Dim signatureText As String
+        Dim emailBody As String
+        
+        emailTo = ws.Cells(i, 1).Value
+        subjectText = ws.Cells(i, 2).Value
+        contentText = ws.Cells(i, 3).Value
+        signatureText = ws.Cells(i, 4).Value
+        
+        ' Build final email body
+        emailBody = contentText & vbNewLine & vbNewLine & signatureText
+        
+        ' Send / display email
+        With OutMail
+            .To = emailTo
+            .Subject = subjectText
+            .Body = emailBody
+            .Send       'use .Display if you want preview instead of auto-send
+        End With
+        
+        Set OutMail = Nothing
+    
+    Next i
+
+    MsgBox "All emails have been sent successfully!", vbInformation
+
+End Sub
