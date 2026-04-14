@@ -1,34 +1,45 @@
-Installs
-1st
+7th
+Bank RRTS:
+IABO28683 Bank Mobile Check Deposit Degraded - P4
+customers were intermittently encountering error messages when attempting tO
+Impact: From 11:33pm ET on 4/6 to 12:41am ET on 4/7, deposis
+deposit a check via the mobile application. 75 unique errors were observed.
+Cause: Vendor Candescent implemented an SSL certificate update.
+Resolution: Candescent configured their SSL trust store so that the old certificate can run in parallel with the new certificate, resolving
+the issue. The Digital Connect team will update the corresponding certificate on the Discover side in days to come.
+IAB828689 for DPL is observing Sporadic Techdiffs from dpl-prequal-so - Non Alert
+
+
+
+12th
+Card and Bank RRT:
+IAOB28777 : Card, Bank - Discover External Bank Account Verification Degraded -- P4, Resolved
+Impact: From 10:38am until 11:02am then again from 3:06pm to 3:10pm ET and 3:46pm until 4:20pm ET on 4/12, Discover Card customers were
+unable to add an external bank account via Web and Mobile with 1702 non-unique failures. Discover Personal Loan customers were unable to
+make a payment with 346 non-unique failures . 8 unique Discover Bank Deposits customers experienced failures attempting to manually link an
+external bank account.
+Cause: Vendor Inflicted-- Due to an issue on vendor Early Warning Services' (EWS) end. The vendor will provide RCA.
+Resolution: The vendor resolved their internal issue.
+
+10th
+
+
+IABB28732 - Discover Bank Bill Pay Functionality Degraded - Resolved - P4
+From 2:05am until 4:84am ET on 4/10, Discover Bank Bil1Pay Get Payment List functionality was very sporadically degraded while connecting ta
+Vendor FIS. There were 122 unique Discover Bank customers attempting to view their Bank Bill Payment history that spor adically experienced a
+Tech Diff' page. This impacted Bank customers via web and mobile .
+Customers may have been successful upon retry.
+Cause: Root cause is under investigation by FIS and Bank Falcons.
+Resolution: Issue resolved without any support intervention
+Card:
+
+
+
+9t
+h
 Bank RRT:
-IABB28622 Multiple Bank Applícations Degraded - P4
-Teact: From 9:4208 until 9:45pm ET on 3/31, Bank customers experienced latency and login failures via Bank nobile and big browser. Users would have been unable to make changes en their accat
-details during the mentioned tímeframe. There were 1,025 non-unique failures observed during the time of impact.
-Cause: During CHG125985e9 (E Patching), RWAPTSGVe7 had 100% cPU and stopped taking traffic.
-Resolution: The issue resolved without support intervention .
-
-3rd 
-.Card RRTS:
-IAB028652 : Discover Card Account Center Registration Degraded - P3
-Inpact: From 10: 00pm on 3/31 until 5:02pm ET on 4/2, cardmembers attempting to register their card via web or mobile, and using a user name already in use, would yet a tech diff and not receive
-an option to select a different user name. Approximately 3,300 cardmembers were impacted.
-Cause: Due to CHG12619083, CHG12619086 (account-center- login -restr-prod) . Root cause under investigation by Login Integration Infrastructure Team.
-Resolution: Login Integration Infrastructure team rolled back the changes.
-
-
-
-4th
-Card RRT:
-IAB828658 -Card and Bank login degraded - P4
-Impact : From 10: 54pm untíl 10:56pm ET on 4/3, Card and Bank web and mobile customers experienced tech-diff pages when attempting to login. There were 380 non-unique fallures observed uhen
-customers attempted to login to the mobile app, and 606 non-unique failures observed when customers attempted to login to the website.
-Cause: The issue was caused by change related activity performed during CHG12602990 (IHS SSB Cache Database Migration), in which session-auth- api updated remote session flag for DB calls. Thịs
-caused the 2 minutes of impact
-Resolution: The issue resolved without further support intervention
-IABB28659- Observed errors in paymentsrest - P4
-Impact: From 11:54 pm ET on 4/3 until 12:01 am ET on 4/4, we observed errors in payments applications, but there was no inpact to making a payment
-Cause: The payments team is going to investigate offline for root cause. Digital SRE to look into Dashboard for Impact analysis.
-Conclusion: IssUe resolved without any support intervention.
-(Errors existed but the only thing that was prevented was the popup screen saying the payment is confirmed]
-
-
+Impact: From 4:56pm until 7:47pm ET on 4/8, customers were receiving errors when attempting to deposit a check via the mobile app. There
+IAOO28709: Bank Mobile Check Deposit Degraded - P4
+were 204 unique customer failures out of 1097 attempts. Customers may have been successful upon retry.
+Cause: -- Vendor Inflicted -- Due to internal pod issues with vendor Candescent.
+Resolution: endor Candes cent restarted their pods.
