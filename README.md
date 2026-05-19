@@ -1,37 +1,33 @@
-6
-Bank RRT :
-IAO029107 Personal Loan Applications Failing Due to Vendor Experian Outage - P4
-Impact - From 10:47 AM ET to 12:53. PM ET on 05/05,, we were seeing spike in latency in dpl-dlos-rules-processor-service. 327 applications are moved to v90 error queue.
-Customers will be observing 5'Call Us page'
-Root cause - It was due to experian vendor
-Resolution- Issue was resolved by itself
+
+12
+IAB829196 - Mobi le Bank customers experienced trouble in login in - P3
+Inpact - From 11:57PM ET 5/11 to 12 : 37AM ET, 12:53AM ET to 12:57AM ET and 1:15AM ET to 1:19AM ET, ibankdocumnetmessageservice2 was not taking traffic, due to which, 2700
+mobile bank customers received a technical difficulty page while attempting to log into their accounts .
+Root cause It is under investigation.
+Resolution
+After restarting ibankdocumentmess ageservice2 we were good.
+IAB029198 - Observing errors in recovery account info NA
 
 
-7th
+14th
 
-Card & Bank RRT:
-IA0029131 - Customers are Experiencing Intermittent Errors for Several Applications - 3C
-Impact: From 22:50 PM ET 05/06 to 12:05 AM ET O5/07, A firewall issue caused errors across multiple applications, resulting in intermittent login failures for Card and
-Bank Account Center customers, access to AC Home L3 features and causing degradation of multiple applications. Total Critical Impacts:5,747 Discover Web and Mobile
-Logins18, 592 AC Home L3 Features.
-Root Cause: A network migration change caused a firewall failure, which disrupted dynamic IP updates and subsequently denied valid sessions.
-Resolution: The impact was mitigated 'with a failback to SSB and the recycling of firewall services at 00:04 ET on 577.
-Reconvene is scheduled at 12:00 PM ET today.
-
+Conclusion: App te am confirmed that multiple campaigns are ongoing,
+SO We are Se
+IAO029219: Discover Card and Bank Customers Unable to Access Ac counts via Web and Mobile for 2 minutes - P4
+Impact: From 2:47 pm ET to 2:49 pm ET on 5/13, observed complete drop in traffic from Akamai to AER for 2 mins, which lead to traffic drop for AER and login apps to both
+Bank and Card. Compared to previous week's average data we see a total 7293 overall login imp act for both bank and card, web and mobile,
+Cause: Akamai will WOrk with SIAS team offline. New Case opened F-CS-11337264, email update will be provided by SIAS te am.
+Resolution: Issue subsided on its own without any manual intervention.
 
 
 
+15th
 
-8th
-CHG12654589
-VENDOR CHANGE** TransUnion Contact Center, Fraud Prevention, Marketing, and Identity Services Maintenance Notice
-Completed
-Bank and Card RRTs:
-IA0029145 - Multiple Applications Degraded due to AWS Issue - 3C
-Impact: From around 8:00 PM ET on 05/07, Datadog monitoring and alerting, which remains available, but delayed by 10-30 minutes. At 2:00 AM ET on e5/08 we in Discover are
-no longer seeing impact but Datadog has not closed their outage yet.
-At 7:39 PM ET, 8:17 PM ET and 11:04 PM ET to 11:12 PM ET on 05/07, and from 12:23 AM to 12:24 AM ET on e5/08, we observe errors for Biometric logins.
-Root Cause: The issue is due to a AWS outage. AWS is having an issue in East 1 Az 4. AWS is still experiencing continuous is sues with their server cooling infrastructure
-at their US-East -1 AZ4 facility.
-Resolution : Teams are working on a fix.
-Next update from AWS is scheduled at 10:3am ET.
+BANK RRTS
+IAO029230 --Dis cover Debit Card Customers Unable to Freeze or Unfreeze Debit Cards
+P4
+Impact from 6: 04 am ET until 8:04 am et on 5/15, Discover Debit Card customers are experiencing issues when attempting to freeze or unfreeze their debit cards via
+digital channels.
+Root cause is under investigation by Vendor FIS.
+Resolution
+Card RRT:
