@@ -1,33 +1,20 @@
-
-12
-IAB829196 - Mobi le Bank customers experienced trouble in login in - P3
-Inpact - From 11:57PM ET 5/11 to 12 : 37AM ET, 12:53AM ET to 12:57AM ET and 1:15AM ET to 1:19AM ET, ibankdocumnetmessageservice2 was not taking traffic, due to which, 2700
-mobile bank customers received a technical difficulty page while attempting to log into their accounts .
-Root cause It is under investigation.
-Resolution
-After restarting ibankdocumentmess ageservice2 we were good.
-IAB029198 - Observing errors in recovery account info NA
-
-
-14th
-
-Conclusion: App te am confirmed that multiple campaigns are ongoing,
-SO We are Se
-IAO029219: Discover Card and Bank Customers Unable to Access Ac counts via Web and Mobile for 2 minutes - P4
-Impact: From 2:47 pm ET to 2:49 pm ET on 5/13, observed complete drop in traffic from Akamai to AER for 2 mins, which lead to traffic drop for AER and login apps to both
-Bank and Card. Compared to previous week's average data we see a total 7293 overall login imp act for both bank and card, web and mobile,
-Cause: Akamai will WOrk with SIAS team offline. New Case opened F-CS-11337264, email update will be provided by SIAS te am.
-Resolution: Issue subsided on its own without any manual intervention.
-
-
-
-15th
-
-BANK RRTS
-IAO029230 --Dis cover Debit Card Customers Unable to Freeze or Unfreeze Debit Cards
-P4
-Impact from 6: 04 am ET until 8:04 am et on 5/15, Discover Debit Card customers are experiencing issues when attempting to freeze or unfreeze their debit cards via
-digital channels.
-Root cause is under investigation by Vendor FIS.
-Resolution
+19th
+Card and Bank RRT:
+IAO029267 Multiple errors observed for IVR, card, bank - P4
+Impact: From 7:38 PM ET to 7:50 PM ET on 5/18, for Card and Bank total 477 non-unique customers were impacted while logging into both Web and Mobile.
+Cause: The AWS EC2 Support team confirmed that the underlying hardware failed and an automated mechanism recovered the instance with same configuration (same ENI, I
+etc) on another host infrastructure
+Resolution : Issue subsided without any support intervention.
 Card RRT:
+
+
+2tg
+
+Card RRT:
+JABe29291 - Some Discover Card Customers and Call Center Agents Unable to Download PDF Statements -- P3
+Impact: From 4:e0 AM ET to 08:58 AM ET, we observed 404 errors for "/v1/statements/{statementDate}" endpoint.
+Discover Card Online Statements 9,458 unique customers impacted
+Cause: A background vault process failure on the BDC site caused statement downloading requests to error out, compounded by an incomp lete statement ingestion job for
+specific cycle dates.
+Resolution: To mitigate the isSue Vault team flipped the traffic to 100% SSB and started the processes on the impacted BDC nodes. A case (case # PRE-0904096) has been
+opened with vendor software provider Precisely to assist with root cause investigation.
