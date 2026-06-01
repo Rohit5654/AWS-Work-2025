@@ -1,20 +1,9 @@
-19th
-Card and Bank RRT:
-IAO029267 Multiple errors observed for IVR, card, bank - P4
-Impact: From 7:38 PM ET to 7:50 PM ET on 5/18, for Card and Bank total 477 non-unique customers were impacted while logging into both Web and Mobile.
-Cause: The AWS EC2 Support team confirmed that the underlying hardware failed and an automated mechanism recovered the instance with same configuration (same ENI, I
-etc) on another host infrastructure
-Resolution : Issue subsided without any support intervention.
 Card RRT:
-
-
-2tg
-
-Card RRT:
-JABe29291 - Some Discover Card Customers and Call Center Agents Unable to Download PDF Statements -- P3
-Impact: From 4:e0 AM ET to 08:58 AM ET, we observed 404 errors for "/v1/statements/{statementDate}" endpoint.
-Discover Card Online Statements 9,458 unique customers impacted
-Cause: A background vault process failure on the BDC site caused statement downloading requests to error out, compounded by an incomp lete statement ingestion job for
-specific cycle dates.
-Resolution: To mitigate the isSue Vault team flipped the traffic to 100% SSB and started the processes on the impacted BDC nodes. A case (case # PRE-0904096) has been
-opened with vendor software provider Precisely to assist with root cause investigation.
+IA0029347-Discover Card Customers are unable to load statements -3C
+Issue- We started seeing errors with statement rest from 7:22 AM ET until 8:48 AM ET With end point
+get_/v1/statements/_statementdate
+Card Impact Discover card customers/Statement Viewing 13,137 non unique Customers, 2,081 unique customers via Web. 11056, unique Mobile customers .
+Bank Impact - From 9:46 PM ET on 05/25 to Ongoing, Bank Customers sporadically experiencing issues with Bank SMC, when customer tried to access the latest statement PDF
+it was not loading.
+Cause- Initially Vault process was down on BDC, To mitigate the impact vault traffic was flipped to 100% ssB but later on it was hard down on both the sides.
+Resolution - Vault team has restarted the vault process on SSB after second trial where live traffic was pointing which helped on mitigat ing the impact for SsB.
