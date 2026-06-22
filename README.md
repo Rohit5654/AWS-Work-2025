@@ -1,35 +1,29 @@
-Shital Telghane Tuesday 8:46 PM Edited
-IA0029463 - Some Datadog Monitoring Alerts Are
-ST
-Experiencing Delayed xMatters Page Notifications --
-3D
-Impact: From 5/29 to 2:21 PM ET on 06/02, a
-subset of monitoring incidents experienced delayed
-XMatterS pages and acknowledgement notifications
-following migration from Moogsoft to Datadog
-ITSM integration. Approximately 214 notifications
-(6-10% of monitoring incidents) were affected.
-Cause: Investigation identified a configuration issue
-in the newly deployed ServiceNow Datadog
-integration business rule. The business rule was
-configured to execute asynchronously, creating
-transaction bottlenecks and queue delays during
-high transaction volumes. As a result, automated
-payload transmission from ServiceNow to XMatters
-was delayed, causing late delivery of alert
-notifications and acknowledgements.
-Resolution: Under CHG12673671, teams
-implemented a configuration fix to move
-notification execution from asynchronous queue-
-based processing to immediate execution within the
-ServiceNow system flow. The fix was validated in a
-lower environment and deployed successfully to
-production at 2:21 PMET. Post deployment
+Lmpa
+Card RRT:
+IAØ029636 - Discover Customers Experiencing Failures With Several High Risk Activities P4
+Impact: From 4:10 am ET to 8:01 am ET on 6/16, Discover cardmembers experienced sporadic authentication errors and
+were unable to complete account recovery. A total of 206 non-unique customers were impacted.
+Root cause: One specific pod (XTJ4) out of four on the Prod 1 cluster failed to execute its aut omated background
+refresh of an internal JsON Web Token (JWT). Operating with an expired token, the pod could no longer authenticate to
+downstream services, causing it to go into distress with high memory usage.
+Resolution: Services were restored to an active/active state at 08:01 ET. after traffic was temporarily shifted to Prod
+2 and the distressed pod was restarted.
+Bank RRT:
 
 
-ServiceNow system flow. The fix was validated in a
-lower environment and deployed successfully to
-production at 2:21 PM ET. Post deployment
-monitoring confirmed that newly generated
-incidents were paging and acknowledging
-successfully without additional delays.
+nge Installs
+Bank RRT:
+IAB029654 - Observing errors in posted -activities -api - P4
+Impact - From 12:36 AM ET to 12:52AM ET, Bank Account home was not loading for bank customers.
+Root Cause - For CHG12677365, bank transaction api traffic was flipped to east-1-prod-2, which caused the issue.
+Resolution - After flipping bank transaction traffic back to east-1-prod-1 the errors were dropped.
+As part of this RRT we had another issue From 12:26:3OAM ET to 12:27:30AM ET and, again from 01:20:30 - 01:20:50 AM ET,
+we were seeing errors in bank-migration - service from API Gateway, we had created an INC to gateway team to check on
+the RCA.
+3:42 AM
+ENG
+a )
+6/22/2026
+US
+T9+
+pe here to search
