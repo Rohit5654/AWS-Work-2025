@@ -1,16 +1,10 @@
-58b1e
-DATADOG INT CARD AC HOME WEB SPA BRUM ANOMALY
-DATADOG INT INETUSERREGISTRYSERVICE2 HOST VOLUME
-DATADOG INT RUM ANOMALY
-Catc
-DATADOG INT CER CARD
-<=
-DATADOG_BRUM INT_ UNIVERSAL_LOGIN_ UI_ RESOURCE ERRORS
-DATADOG INT RUM ANOMALY
-Manage Att DATADOG INT RUM ANOMALY
-DATADOG_ INT APM ERROR_ OR LATENCY
-DATADOG INT APM ERROR OR LATENCY
-I
-datadog int_login _anomaly_spike
-datadog_int_mrum_4Xx_spike_anomaly
-
+5:32 AM
+Hi Akanksha, have we validated above mentioned separately? Or just health checks as part of
+*5845 change validations?
+what is the traffic status 2is it back to a/a?
+Akanksha Tiwalekar 5:37 AM
+CTASK is closed wid mentioned validations. Traffic u can check at DD
+AT
+5:42 AM
+Yes, I can check that, as you were active in the chat of 5845* chg
+i thought you are still working on that
