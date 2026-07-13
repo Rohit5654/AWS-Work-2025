@@ -1,31 +1,11 @@
-Q Search (Ctri+E)
-ICO Offshore Chat Shared
-Recap
-Handbook
-B3 Meet now
-Channels
-hats
-Aman Gupta Everyone, if you are part of traffic flips for changes, please update CC to keep ESolutions, in BDC when ge
-ws
-Resolution- Errors are subsided by itself
-ions
-those
-wed threads
-Akanksha Tiwalekar 3:50 AM
-er
-AT
-Rohit Shinde 7/8/2026 3:44 AM
-IA0029850-universal-customer-login-api sporadic error spikes - NA
-Issue- Universal-customer-login-api sporadic errors spike with http..
-resolution for this RRT ??
-35845
-ore
-ah i forgot to add tha
-ine Install
-Akanksha Tiwalekar 4:07 AM
-P
-did anybody join lAO029851 ??.
-AT
-Swastik Saha 4:08 AM
-yes, its related to 845 change
-SS
+Bank RRT:
+IAB029849 Bank Customers experiencing technical difficulties accessing Home Screen - P3
+Impact - From 8:00 PM to 10:06 PM on 07/07, customers faced difficulty in accessing Bank ACHome Account activity
+widget via mobile and web.
+117 unique customers unable to access Bank Achome in web 119 unique customers unable to access activity in Bank Achome
+page via web, 746 unique customers unable to access activity in Bank Achome page via mobile, 77 unique customers
+unable to perform funds transfer in mobile
+Root Cause - It was identified that a recently renewed certificate was not properly taking effect on a specific
+cluster within the Enterprise IHS API Gateway, causing it to present an expired certificate.
+Resolution - App team cleared cache by performing a dummy operation so that the new certificate can be uploaded.
+Card RRT:
