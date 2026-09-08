@@ -1,22 +1,35 @@
-20th
 Card RRT:
-IAO03306 - Multiple Discover Applications Are Degraded due to MQ Issues -- P4
-Impact: From e5:05 PM - e5:35 PM ET at 8/19, Multiple consumers impacted from AChome, sending messages via Morse
-system, which failed to connect to MQ host due to some connectivity issue with SAN.
-Impact Counts: Morse (Card) - 166, 583 non -unique notifications (Push/Email/SMS) delayed or successful upon retry.
-Cause : An ARP storm at approximately 16:57 ET caused a temporary network connectivity disruption to the BDC Zone 3
-NetApp storage cluster, leading to share volume timeouts and unresponsiveness across hosted Unix MQ servers.
-Resolution: Impacted traffic successfully failed over to sSB at 17:32 PM ET; to restore the functionality. All
-impacted services are returned to BAU and validated as 00:04 AM ET on 8/20
+IABO30429 - Mult iple Batches Delayed -- P3, Resolved
+Issue: During a scheduled change at 22:09 ET on 08/31, the ODSTRIG account password was mistakenly reset instead of
+the TELEODS account. This blocked Mainframe file transfers to Enterprise Rewards and EDS. The Active Directory team
+fixed the password at 07:20 ET on 9/01, resuming file transfers. All delayed background processes (Rewards,
+Statements, CFR, Vault Ingestion, and FDR) caught up by 13:46 ET 9/1, fully restoring account updates for Web and
+Cause: During Scheduled change CHG12729744, the ODSTRIG generic account password was rotated by mistake instead of the
+Mobile users
+intended TELEODS account.
+Resolution: The Active Directory team fixed the password at 07:20 ET on 09/01, resuming file transfers.
 
 
-21st
+Card & Bank RRT:
+IAO030473 - Some Users Are Experiencing Errors Across Multiple Discover Applications Due to a Network Loop- P4
+Impact : from 03:56pm ET to 4:25pm ET on 9/03 observed errors in multiple card and bank applications. 384 non-unique
+customers unable to login to AC via web and mobile
+Suspected root cause: A new, non-production Windows host was configured with a software Network Bridge across its two
+network interfaces instead of standard NIC Teaming.
+Resolution: Issue got subsided without any support intervention.
+Bank RRT:
+
+
 Card RRT:
-IA0030329 - Observing sporadic errors for fido-authentication-api - P4
-Impact: From 10:08 AM ET to 10:43 AM ET on 8/21, we observed sporadic errors in fido- authentication- api for
-/enterprise/fidoauth/v3/authentication endpoint. Customers experienced intermittent biometric login failures on
-discover mobile app, with approx. 200 failed requests. Standard username and password logins were unaffected.
-Root Cause : Issue is with vendor Daon. App te am has created a Case #541149. with Vendor for RCA.
-Resolution: Issue subsided without any support intervention.
-ts
+IAO030429 - Multiple Batches Delayed -- P3, Resolved
+Issue: During a scheduled change at 22:09 ET on 08/31, the 0DSTRIG account password was mistakenly reset instead of
+the TELEODS account . This blocked Mainframe file transfers to Enterprise Rewards and EDS. The Active Directory team
+fixed the password at 07:20 ET on 09/01, resuming file transfers. All delayed background processes (Rewards,
+Statements, CFR, Vault Ingestion, and FDR) caught up by 13:46 ET 9/1, fully restoring account updates for Web and
+Cause: During Scheduled change CHG12729744, the ODSTRIG generic account password was rotated by mistake instead of the
+Mobile users.
+intended TELEODS account.
+Resolution: The Active Directory team fixed the password at 07:20 ET on 09/01, resuming file transfers.
+Alerts
+
 
