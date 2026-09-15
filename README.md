@@ -19,4 +19,13 @@ simultaneously. This competition for the same lock causes transactions to hang-o
 to a cascade of blocked transactions. But no proper update on RCA. Oracle DB team is working on it. Will stay in BDC until further updates
 from Oracle team. Reconvene on 10 PM ET tonight.
 
+Impact count - 78194 volume drop in login web and mobile
+Root cause: Investigation identified database locking involving uncomitted sessions on ssB cache tables including
+payment_bank_account_cache and payment_info_cache) Further RCA is still under investigation
+Resolution: The issue is mitigated after Card and 0CP traffic moved to 100% BDC and then returned to it's original state(A/A) at 12:45 AM ET
+Card RRT:
+
+
+
+
 
