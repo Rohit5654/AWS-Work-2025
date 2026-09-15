@@ -25,6 +25,13 @@ payment_bank_account_cache and payment_info_cache) Further RCA is still under in
 Resolution: The issue is mitigated after Card and 0CP traffic moved to 100% BDC and then returned to it's original state(A/A) at 12:45 AM ET
 Card RRT:
 
+Shital Telghane 5:04 AM
+CHG12739795 - Card, Bank: IHS SSB Cache - Recreate Database Instance 2
+ST
+(p66m231r2) in the RAC database (p66m231r)
+5:10 AM Meeting ended: 10m 24s
+
+
 
 
 
