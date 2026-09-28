@@ -1,50 +1,36 @@
-16
-
-IABeBe587 - Some Discover Card Customers Are Unable to View Balance Transfer Offers or Manage Cards - P4 (Reconvene is Schedule at 2pm ET on
-9/16)
-Impact: From 1: 26 PM to 2:05 PM ET on 9/15, Discover Card members experienced intermittent failures when attempting to view Balance Transfer
-offers or perform Card Management functions. The impact is minimal.
-Root Cause : The issue was caused by WebSphere application servers reaching 100% disk space capacity across both data centers, driven by
-high-volume Log4j debug logging in system. out. log files from supporting backend services (eContact, eCommProfile, and Account Data Service).
-Resolution: Temporary fix to mitigate the impact
-1) MidOps manually cleared and compressed archived log files, restoring disk availability and allOwing customer error rates to subside back
-to normal thresholds.
-2) Storage Expansion: Infrastructure teams (UnixOps, Storage, and Winops) executed automated and manual disk space expansions (increasing
-file systems from 82 GB up to 150 GB) across all 24 Websphere nodes to provide an immediate operational safety buffer.
-Permanent Resolution to fix the issue - On 9/14 this CHG12502376 - Card, Bank: Card Code Install went into production, The Digital Card Bank
-Release team executed e Com profile application rollback in coordination with the bank release maintenance window.
+22
+Card and Bank RRT:
+IA0030658- Multiple Applications Experiencing Widespread Issues Since 1:40pm ET- P3- Mitigated ( reconvene at 10 AM ET)
+Impact- from 1:40 to 1:51 PM ET on 9/21, some Discover Card and bank customers experienced issues accessing the Account Center and some
+online account functions. From 1:42 PM to 1:46 PM ET on a9/21, Bank went into lite mode and it isrestored back.
+Cause An Exadata hardware frame in the BDC data center lost netWork connectivity, dropping database connections across hosted instances .
+Card- ADWS was placed into lite mode on BDC.
+and ocp bundle traffic was moved to SSB 100%
+Mitigation: To mitigate, Card AER
 
 
-17th
-IABO38600 - Bank Tier2 Catchpoint failing - P4
-Impact: From 11:86 PM ET on 89/16 to 3:56 AM ET on 9/17, Message an Agent option is missing from Bank Help Center page. No errars ere
-observed in the Help Center endpoint.
-RCA: Message an agent option was suppressed as per business requirements, hence closed RRT
-Resolution: We asked the catchpoint team to remove that step, and they removed it hence catchpoint runs Successfully.
+26
+Al BOOkmar
+Card RRT:
+SIT104202 Ease Mobile and Web Account Summary Degradation- 3C
+Impact: Starting at 09:21 ET to 10:28 AM ET and again from 11:44 AM to 11:49 AM ET Oon 09/25, auto loan customers calls experiencing elevated
+504 Gateway Timeout errors for view accounts, balances, or entitlements calls in EASE Mobile/Web , Impacted customers are unable to view
+their account summary tile in EASE Web and Mobile. This is also impacting other LOBs for customers who have additional accounts
+ICO Impact: We observed socket timeout exceptions in identity-migration-outbound- api for post /enterprise/migration-
+outbound/v1/migration/eligibility
+Impact count: Card - 15, 571, Bank - 8, 507, DFS External customers - 102
+Cause: Due to deployment (CHG7035973) on the COAF Account API, which caused severe latency and service errors.
+Mitigation: To mitigate the impact, they rolled back the change CHG7035973
+Resolution: Technical teams stabilized the environment by bypassing the Auto Loan Account API at 10:31 ET, deployed a targeted fix and
+expanded capacity at 11:41 ET. At 13:19 ET service was fully restored after progressively shifting 100% of traffic back to the EAST
+IAO030704 - Some users experienced errors with multiple functions of the Discover Card Account Center - Resolved -Sev5
+Impact: From 04:41 AM to e5:15 AM ET on 09/26, We observed errors in few of our applications (Rewardsrest, CMSREST1, CMSREST2) coming from
+inetaccountmanagerservice2,
+[Customers might not be able to view rewards cashback balance in mobile achome 737 non unique, web only had 1 error]
+[Customers might not be able to manage cards in web - 23 non unique. mobile - 156]
+Root Cause: The ADWS lite mode, which was kept in BDC for IAB030658, wasn't removed before moving card traffic to A/A as part of change
+CHG12736212
+Resolution: Card traffic was temporarily moved to 100% SSB to mitigate the issue and the ADWS lite mode was removed from BDC and traffic was
+moved to A/A again for validation.
 
-
-18th
-Bank RRT:
-Issue: From 84:10 - 10:56 AM ET 09/18, Discover customers were unable to make a personal loan payments via web, they were seeing a blank
-IAB03e622- DPL Payments issue on web - p4
-screen. 84 unique customers were impacted
-RCA: Issue is due to a recent UI deployment CHG12743376, CHG12743389.
-Resolution: Issue resolved post back out of the UI Changes.
-Digital Payment Enablement Customers Experienced LNP and LCM Failures Across Multiple Wallets -P4
-Card & Bank:
-Inpact: From 7:30 AM ET to 11:10 AM ET 9/18, Observed Intermittent error spikes were observed briefly affecting multiple applications (IVR,
-IAOB3624
-Action, Orion, Atlas Rewards) . Most application impact subsided by 11:10am ET or retry logic was in place. No customer impact.
-Cause: Identified CHG12743028 caused ingress routing latency and HAProxy node degradation on the East Prod 1 cluster.
-Resolution: inpact was mitigated by flipping traffic avay from EAST Prod 1 cluster. At 4:55 PM ET the daemonset which was installed via
-CHG12743028 was rolled back from the East Prod 1 cluster.
--api - NA
-
-19th
-Bank RRT:
-IABƏ3OS36 - Some Customers Experiencing Blank Screens on Web DPL Payments - P4
-Inpact: from 7:48 AM ET to 18:05 AM ET, the payment processing system for Discover Personal Loans is experiencing an issue, inpacting
-customers attempting to make dpl payments . 98 unique cust omer were impacted
-Cause - This is related to IA0030622, after backout of their install, Akamai cache was not purged, which caused the issue.
-Resolution - After the akamai was purged the errors were stopped.
 
