@@ -1,36 +1,30 @@
-22
-Card and Bank RRT:
-IA0030658- Multiple Applications Experiencing Widespread Issues Since 1:40pm ET- P3- Mitigated ( reconvene at 10 AM ET)
-Impact- from 1:40 to 1:51 PM ET on 9/21, some Discover Card and bank customers experienced issues accessing the Account Center and some
-online account functions. From 1:42 PM to 1:46 PM ET on a9/21, Bank went into lite mode and it isrestored back.
-Cause An Exadata hardware frame in the BDC data center lost netWork connectivity, dropping database connections across hosted instances .
-Card- ADWS was placed into lite mode on BDC.
-and ocp bundle traffic was moved to SSB 100%
-Mitigation: To mitigate, Card AER
+2nd Oct
+Bank RRT:
+IAOO3e786 - Discover bank Check order is impacted - P4
+Inpact- From e3:24pm ET to e4:24 pm ET, Customers were experiencing failures when trying to place check orders via web.
+RCA - Errors were due to an ongoing change at Deluxe vendor.
+Resolution - Errors got subsided post change completion.
+
+3rd
+
+CHG12747715- Calico upgrade to v3.23.2 on aws-uswest2- apps-prod-1 Completed
+CHG12747643- Calico upgrade to V3.23.2 on aws-useast1 -ppp-apps-prod-1 - Completed
+Bank RRT:
+IADe3e8e1 For Bank Discover Bank customers are unable to perform Bill Pay functions via Web and Mobile - P4
+Inpact: From 8 PM ET to 9:56 PM ET on 19/02, Discover Bank customers have seen issues while accessing Billpay enrollment and payment
+features via both web and mobile. Total 365 unique failures observed.
+RCA: TLS Connection establishment failures and 403 Forbidden responses observed when communicating with downstream vendor FIS endpoints .
+Resolution: Bank Falcons team executed rolling pod restarts for all four Bill Pay microservice APIS across all production clusters to flush
+cached secrets and force Vault to load the new certificate.
 
 
-26
-Al BOOkmar
+4th
 Card RRT:
-SIT104202 Ease Mobile and Web Account Summary Degradation- 3C
-Impact: Starting at 09:21 ET to 10:28 AM ET and again from 11:44 AM to 11:49 AM ET Oon 09/25, auto loan customers calls experiencing elevated
-504 Gateway Timeout errors for view accounts, balances, or entitlements calls in EASE Mobile/Web , Impacted customers are unable to view
-their account summary tile in EASE Web and Mobile. This is also impacting other LOBs for customers who have additional accounts
-ICO Impact: We observed socket timeout exceptions in identity-migration-outbound- api for post /enterprise/migration-
-outbound/v1/migration/eligibility
-Impact count: Card - 15, 571, Bank - 8, 507, DFS External customers - 102
-Cause: Due to deployment (CHG7035973) on the COAF Account API, which caused severe latency and service errors.
-Mitigation: To mitigate the impact, they rolled back the change CHG7035973
-Resolution: Technical teams stabilized the environment by bypassing the Auto Loan Account API at 10:31 ET, deployed a targeted fix and
-expanded capacity at 11:41 ET. At 13:19 ET service was fully restored after progressively shifting 100% of traffic back to the EAST
-IAO030704 - Some users experienced errors with multiple functions of the Discover Card Account Center - Resolved -Sev5
-Impact: From 04:41 AM to e5:15 AM ET on 09/26, We observed errors in few of our applications (Rewardsrest, CMSREST1, CMSREST2) coming from
-inetaccountmanagerservice2,
-[Customers might not be able to view rewards cashback balance in mobile achome 737 non unique, web only had 1 error]
-[Customers might not be able to manage cards in web - 23 non unique. mobile - 156]
-Root Cause: The ADWS lite mode, which was kept in BDC for IAB030658, wasn't removed before moving card traffic to A/A as part of change
-CHG12736212
-Resolution: Card traffic was temporarily moved to 100% SSB to mitigate the issue and the ADWS lite mode was removed from BDC and traffic was
-moved to A/A again for validation.
-
+IA0030818 - Some Card eSolutions Agents And ProtectBuy Customers Experienced Intermittent Latency And Authentication Failures Utilizing 00B
+Channel -- P4
+Issue: From 02:20 ET on 10/4, eSolations agents were unable to load customer accounts quickly because requests that required a database call
+timed out after 30 seconds, causing slow page loads and occasional time-outs.
+Cause: Overnight database migration moved the primary p_acctcenter database from EP66 to EP67, and the 00B Channel API's egress rules still
+pointed to the old cluster, preventing database connections.
+Resolution: 00B-Channel-API was redeployed, which restored normal service functionality.
 
